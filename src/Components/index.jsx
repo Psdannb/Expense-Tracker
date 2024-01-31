@@ -19,10 +19,12 @@ const index = () => {
     <div className="bg-gradient-to-r from-sky-500 to-indigo-500 h-screen flex justify-center items-center ">
       <div className="">
         <div>
-          <p className="text-4xl text-white">SignIn with Google to continue</p>
+          <p className="md:text-4xl text-xl text-white">
+            SignIn with Google to continue
+          </p>
         </div>
         <div className=" text-center mt-6 " onClick={signINWithGoogle}>
-          <button className=" border-2 rounded border-white p-4 hover:text-white">
+          <button className=" border-2 rounded border-white p-4 hover:text-white lg:text-black text-white">
             SignIn with google
           </button>
         </div>

@@ -30,12 +30,12 @@ const ExpenseTracker = () => {
   };
   return (
     <>
-      <div className="flex justify-center itecenterms-">
-        <div className="bg-slate-50 w-1/2 ">
-          <h1 className="ml-2 mt-2 text-4xl text-slate-600">
+      <div className="flex justify-center items-center ">
+        <div className="bg-slate-50 lg:w-1/2 w-full">
+          <h1 className="ml-2 mt-2 md:text-4xl text-2xl text-slate-600 mx-5">
             {name}'s Expense Tracker
           </h1>
-          <div className="flex justify-between">
+          <div className="flex justify-between md:mt-0 mt-2">
             <div>
               <div className="ml-2 ">
                 <h1 className="text-xl text-slate-800">Your Balance</h1>
@@ -72,26 +72,28 @@ const ExpenseTracker = () => {
             </div>
           </div>
           <form id="form" className="ml-2 mt-4" onSubmit={handleTransaction}>
-            <input
-              className="border mr-2 outline-none border-slate-500 rounded"
-              type="text"
-              placeholder="Description"
-              value={description}
-              required
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-            />
-            <input
-              className="border mr-2 outline-none border-slate-500 rounded "
-              type="number"
-              placeholder="Amount"
-              value={transactionAmount}
-              required
-              onChange={(e) => {
-                setTransactionAmount(e.target.value);
-              }}
-            />
+            <div className="flex flex-col justify-center gap-2 mb-2 md:block">
+              <input
+                className="border mr-2 outline-none border-slate-500 rounded "
+                type="text"
+                placeholder="Description"
+                value={description}
+                required
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+              <input
+                className="border mr-2 outline-none border-slate-500 rounded "
+                type="number"
+                placeholder="Amount"
+                value={transactionAmount}
+                required
+                onChange={(e) => {
+                  setTransactionAmount(e.target.value);
+                }}
+              />
+            </div>
             <div className="flex  gap-8">
               <div className="flex items-center">
                 <label htmlFor="expense" className="text-sm mr-1">
@@ -131,19 +133,21 @@ const ExpenseTracker = () => {
           </form>
         </div>
       </div>
-      <div className="transactions flex   flex-col items-center mt-2">
+      <div className=" flex   flex-col items-center mt-2">
         <h3 className="text-4xl text-slate-600">Transactions</h3>
         <div
           className={`${
             transactions.length > 0
-              ? "border w-1/2 mt-2 border-slate-400 border-b-0 "
-              : "w-1/2 mt-2"
+              ? "border lg:w-1/2 mt-2 border-slate-400 border-b-0 w-full "
+              : "lg:w-1/2 mt-2 w-full"
           }`}
         >
           {transactions.length > 0 ? (
             <div className="flex justify-around border-b-2 items-center border-slate-200 w-full bg-slate-500">
-              <h1 className="text-white">Title</h1>
-              <h1 className="text-white">Amount</h1>
+              <h1 className="text-white ml-[-30px] md:ml-[-100px] lg:ml-[-50px]">
+                Title
+              </h1>
+              <h1 className="text-white md:ml-[50px] lg:ml-[75px]">Amount</h1>
               <h1 className="text-white">Type</h1>
             </div>
           ) : (
@@ -162,7 +166,9 @@ const ExpenseTracker = () => {
                     <h4 className=" ml-4 text-sm">{description}</h4>
                   </div>
                   <div className="text-left  w-1/3">
-                    <p className=" text-sm  ml-20">Rs {transactionAmount}</p>
+                    <p className=" text-sm  md:ml-20 ml-4">
+                      Rs {transactionAmount}
+                    </p>
                   </div>
                   <div className=" w-1/3 text-center">
                     <p
